@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="plantilla::head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container" th:replace="plantilla::menu"></div>
+        <div class="container" style="max-width: 400px; margin-top: 50px">
+            <div class="card">
+                <div class="card-header">
+                    Registrar Alumno
+                </div>
+                <div class="card-body">
+                    <form action="/add">
+                        <div class="mb-3">
+                            <select name="idcarre" id="carre" class="form-control">
+                                <option value="0">Seleccionar Categoria</option>                                
+                                <option th:each="carre : ${carres}" th:value="${carre.id}" th:text="${carre.nomcar}" th:selected="false"/>                              
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control m-25" name="nombre" placeholder="Nombres">        
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control m-25" placeholder="Telefonos" name="telefono">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control m-25" name="correo" placeholder="Correo">        
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Guardar">
+                    </form>
+                </div>
+            </div>
+    </body>
+</html>
+
